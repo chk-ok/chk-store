@@ -6,7 +6,7 @@ import './NavBar.css';
 class Navbar extends React.Component {
     render() {
       return (
-        <nav id="navbar" className="navbar navbar-expand navbar-dark bg-light shadow">
+        <nav id="navbar" className="navbar navbar-expand navbar-dark bg-light shadow sticky-top">
 
             {/*Logo*/}
 
