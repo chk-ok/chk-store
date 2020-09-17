@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height: 100vh;
 }
 
 .App-logo {
@@ -41,8 +42,27 @@
   background-color: #d22531 !important;
 }
 
-.cardBackground{
-  background-color: #FFFAF0 !important;
+.welcomeCard {
+  background-color: #dd404b !important;
+  color:  white;
+}
+
+.productCard {
+  background-color: white !important;
+  border: 1px solid #dd404b !important;
+  color: #1b1811;
+  height: 370px;
+  width: 280px;
+  cursor: pointer;
+}
+
+.productDetail{
+ text-align: left;
+ border-top: 1px solid #dd404b !important;
+}
+
+.productPrice{
+  font-weight: bold;
 }
 
 .mainOutline{
