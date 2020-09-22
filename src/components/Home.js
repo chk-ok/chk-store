@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ItemDetailContainer from './ItemDetailContainer';
 import ItemList from './ItemList';
 import Spinner from './Spinner';
 
@@ -10,18 +11,18 @@ export default class Home extends Component {
     componentDidMount(){
         const task = new Promise ((resolve, reject)=>{
             let productos = [
-                {id: 1, name: 'Falda Estampada', price:'$450'},
-                {id: 2, name: 'Jean basico', price:'$900'},
-                {id: 3, name: 'Musculosa Algodon', price:'$300'},
-                {id: 4, name: 'Falda Estampada', price:'$450'},
-                {id: 5, name: 'Jean basico', price:'$900'},
-                {id: 6, name: 'Musculosa Algodon', price:'$300'},
-                {id: 7, name: 'Falda Estampada', price:'$450'},
-                {id: 8, name: 'Jean basico', price:'$900'},
-                {id: 9, name: 'Musculosa Algodon', price:'$300'},
-                {id: 10, name: 'Falda Estampada', price:'$450'},
-                {id: 11, name: 'Jean basico', price:'$900'},
-                {id: 12, name: 'Musculosa Algodon', price:'$300'}
+                {id: 1, name: 'Falda Estampada', price:450},
+                {id: 2, name: 'Jean basico', price:900},
+                {id: 3, name: 'Musculosa Algodon', price:300},
+                {id: 4, name: 'Falda Estampada', price:450},
+                {id: 5, name: 'Jean basico', price:900},
+                {id: 6, name: 'Musculosa Algodon', price:300},
+                {id: 7, name: 'Falda Estampada', price:450},
+                {id: 8, name: 'Jean basico', price:900},
+                {id: 9, name: 'Musculosa Algodon', price:300},
+                {id: 10, name: 'Falda Estampada', price:450},
+                {id: 11, name: 'Jean basico', price:900},
+                {id: 12, name: 'Musculosa Algodon', price:300}
             ];
             setTimeout(()=> resolve(productos), 2000);
         });
@@ -53,7 +54,9 @@ export default class Home extends Component {
                 <div>
                     <ItemList items={this.state.products}/>
                 </div>
+                <ItemDetailContainer/>
             </div>
+            
         )
     }
 }

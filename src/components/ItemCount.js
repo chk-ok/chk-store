@@ -31,8 +31,8 @@ export default class ItemCount extends Component {
       
       render(){
         return (
-            <div>
-              <div className="input-group shadow">
+            <div className="counter d-flex flex-column my-4">
+              <div className="input-group">
                   <div className="input-group-prepend">
                       <Button action={this.decrement} label="-"/>
                   </div>
@@ -41,7 +41,7 @@ export default class ItemCount extends Component {
                   <Button action={this.increment} label="+"/>
                   </div>
               </div>
-              <div className="mt-4">
+              <div className="mt-3 w-100 shadow">
                 <Button action={()=>this.props.onAdd(this.state.count)} label="Agregar al carrito" outlined/>
               </div>
             </div>

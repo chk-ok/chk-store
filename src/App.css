@@ -43,6 +43,7 @@
 }
 
 .welcomeCard {
+  text-align: center;
   background-color: #dd404b !important;
   color:  white;
 }
@@ -56,7 +57,7 @@
   cursor: pointer;
 }
 
-.productDetail{
+.cardDetail{
  text-align: left;
  border-top: 1px solid #dd404b !important;
 }
@@ -69,4 +70,16 @@
   border-color: #d22531 !important;
   background-color: white !important;
   color: #d22531 !important;
+}
+
+.productImage {
+  height : 70vh;
+}
+
+.cardImage {
+  height : 278px;
+}
+
+.buyingActions {
+  width: 300px !important;
 }

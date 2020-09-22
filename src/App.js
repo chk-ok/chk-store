@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App container-fluid p-0">
+    <div>
       <Navbar/>
       <Home greeting="Hola! Bienvenida a tu nueva forma de vestir ;)"></Home>
     </div>
