@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import logo from '../images/50x53-white.png';
 import CartIcon from './CartIcon.js';
 import './NavBar.css';
@@ -10,9 +11,11 @@ class Navbar extends React.Component {
 
             {/*Logo*/}
 
-            <a className="navbar-brand" href="index.html" alt="Home">
-                <img src={logo} alt="Chillko"/>
-            </a>
+            <Link to="/">
+                <div className="navbar-brand">
+                    <img src={logo} alt="Chillko"/>
+                </div>
+            </Link>
 
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                 <span className="navbar-toggler-icon"></span>
@@ -23,10 +26,10 @@ class Navbar extends React.Component {
             <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <a className="nav-link" href="index.html">Categorias</a>
+                        <a className="nav-link" href="/">Categorias</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="index.html">Ofertas</a>
+                        <a className="nav-link" href="/">Ofertas</a>
                     </li>
                 </ul>
 
@@ -50,7 +53,7 @@ class Navbar extends React.Component {
 
                 {/*Login*/}
 
-                <a href="index.html" className="ml-3 mr-1">
+                <a href="/" className="mr-1">
                     <svg width="1em" height="1em" className="bi bi-person" fill="white">
                         <path fillRule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                     </svg>

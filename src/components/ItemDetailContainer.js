@@ -1,17 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import ItemDetail from './ItemDetail';
 import Spinner from './Spinner';
-import img from '../images/ropa_full.png';
+import { useParams } from 'react-router-dom';
 
-export default function ItemDetailContainer() {
+export default function ItemDetailContainer({products}) {
+
+    const params = useParams();
 
     const [loading, setLoading] = useState(true);
     const [item, setItem] = useState({});
 
     useEffect(() => {
+        const prod = products[params.id - 1];
         const task = new Promise ((resolve, reject)=>{
-            const prod = {id:1, name:"Remera Estampada", price:450, image:img};
-            setTimeout(()=> resolve(prod), 3000);
+            setTimeout(()=> resolve(prod), 1000);
         });
         task.then(result => {
             setLoading(false);
@@ -21,7 +23,7 @@ export default function ItemDetailContainer() {
         }).catch(exception => {
             console.log(exception);
         });
-    }, []);
+    }, [params]);
 
     if (loading) {
         return (
