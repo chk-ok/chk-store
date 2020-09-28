@@ -6,6 +6,8 @@ export default function Button(props) {
         style = 'btn mainOutline w-100';
     }
     return (
-    <button className={style} type="button" onClick={props.action}>{props.label}</button>
+    <button className={style} type="button" onClick={props.action}>
+        {props.label}
+    </button>
     )
 }

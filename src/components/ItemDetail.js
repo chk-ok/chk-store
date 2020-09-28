@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ItemCount from './ItemCount';
 import Button from './Button';
 
 export default function ItemDetail({item}) {
+
+    const [counter, setCounter] = useState(1);
+
     const agregarAlCarrito = (count) => {
         let message = 'Agregaste '.concat(count).concat(' ').concat(item.name).concat(' al carrito');
         window.alert (message);
@@ -10,6 +13,9 @@ export default function ItemDetail({item}) {
     const comprar = () => {
         let message = 'Vas a comprar '.concat(item.name).concat(' sin pasar por el carrito');
         window.alert (message);
+    }
+    const handleUpdate = (count) => {
+        setCounter(count);
     }
 
     if (item) {
@@ -26,9 +32,9 @@ export default function ItemDetail({item}) {
                         ${item.price}
                     </h3>
                     <div className="buyingActions my-5">
-                        <ItemCount initial="1" min="1" max="10" onAdd={agregarAlCarrito}/>
+                        <ItemCount initial="1" min="1" max="10" onAdd={agregarAlCarrito} onUpdate={handleUpdate}/>
                         <div className="mt-5 shadow">
-                            <Button label="Comprar" action={comprar}/>
+                            <Button label={`Comprar ${counter}`} action={comprar}/>
                         </div>
                     </div>
                 </div>

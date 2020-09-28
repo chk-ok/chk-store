@@ -11,19 +11,18 @@ export default function ItemDetailContainer({products}) {
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        const prod = products[params.id - 1];
         const task = new Promise ((resolve, reject)=>{
-            setTimeout(()=> resolve(prod), 1000);
+            setTimeout(()=> resolve(params.id - 1), 1000);
         });
         task.then(result => {
             setLoading(false);
-            setItem(result);
+            setItem(products[result]);
         }, error => {
             console.log(error);
         }).catch(exception => {
             console.log(exception);
         });
-    }, [params]);
+    }, [params, products]);
 
     if (loading) {
         return (

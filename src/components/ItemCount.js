@@ -10,15 +10,17 @@ export default class ItemCount extends Component {
     
       increment = () => {
           if (this.state.count < this.props.max) {
-            let newcount = Number(this.state.count) + 1;
-            this.setState({count : newcount});
+            let newCount = Number(this.state.count) + 1;
+            this.setState({count : newCount});
+            this.props.onUpdate(newCount);
           }
       }
 
       decrement = () => {
           if (this.state.count > this.props.min) {
-            let newcount = Number(this.state.count) - 1;
-            this.setState({count : newcount});
+            let newCount = Number(this.state.count) - 1;
+            this.setState({count : newCount});
+            this.props.onUpdate(newCount);
           }
       }
 
@@ -26,6 +28,7 @@ export default class ItemCount extends Component {
           let newValue = Number(document.getElementById("inputCantidad").value);
           if (!Number.isNaN(newValue) && newValue >= this.props.min && newValue <= this.props.max) {
             this.setState({count : newValue});
+            this.props.onUpdate(newValue);
           }
       }
       
