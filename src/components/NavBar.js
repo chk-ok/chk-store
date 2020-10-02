@@ -4,9 +4,9 @@ import logo from '../images/50x53-white.png';
 import CartIcon from './CartIcon.js';
 import './NavBar.css';
 
-class Navbar extends React.Component {
-    render() {
-      return (
+export default function NavBar() {
+    
+    return (
         <nav id="navbar" className="navbar navbar-expand-sm navbar-dark bg-light shadow sticky-top">
 
             {/*Logo*/}
@@ -26,10 +26,10 @@ class Navbar extends React.Component {
             <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav mr-auto">
                     <li className="nav-item">
-                        <a className="nav-link" href="/">Categorias</a>
+                        <Link to="/"><span className="nav-link">Categorias</span></Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/">Ofertas</a>
+                        <Link to="/"><span className="nav-link">Hot Sale</span></Link>
                     </li>
                 </ul>
 
@@ -53,15 +53,12 @@ class Navbar extends React.Component {
 
                 {/*Login*/}
 
-                <a href="/" className="mr-1">
+                <div className="mr-1">
                     <svg width="1em" height="1em" className="bi bi-person" fill="white">
                         <path fillRule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                     </svg>
-                </a>
+                </div>
             </div>
         </nav>
-        )
-    }
+    )
 }
-
-export default Navbar;

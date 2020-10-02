@@ -57,6 +57,12 @@
   cursor: pointer;
 }
 
+.cartItem {
+  background-color: white !important;
+  border: 1px solid #dd404b !important;
+  color: #1b1811;
+}
+
 .cardDetail{
  text-align: left;
  border-top: 1px solid #dd404b !important;

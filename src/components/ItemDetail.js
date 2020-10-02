@@ -1,18 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import ItemCount from './ItemCount';
 import Button from './Button';
+import {CartContext} from '../context/CartContext';
 
 export default function ItemDetail({item}) {
 
     const [counter, setCounter] = useState(1);
+    const {cart, setCart, cartLength} = useContext(CartContext);
 
-    const agregarAlCarrito = (count) => {
-        let message = 'Agregaste '.concat(count).concat(' ').concat(item.name).concat(' al carrito');
-        window.alert (message);
+    const agregarAlCarrito = () => {
+        setCart (cart => [...cart, {prod: item, cant: counter}]);
     }
     const comprar = () => {
-        let message = 'Vas a comprar '.concat(item.name).concat(' sin pasar por el carrito');
-        window.alert (message);
+        setCart (cart => cart.concat({prod: item, cant: counter}));
     }
     const handleUpdate = (count) => {
         setCounter(count);

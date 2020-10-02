@@ -4,6 +4,7 @@ import Navbar from './components/NavBar.js';
 import Home from './components/Home.js';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
+import {CartProvider} from './context/CartContext';
 import img from './images/ropa_full.png';
 import './App.css';
 
@@ -46,18 +47,20 @@ export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Navbar/>
-        <Switch>
-          <Route exact path="/">
-            <Home greeting="Hola! Bienvenida a tu nueva forma de vestir ;)" products={this.state.products}/>
-          </Route>
-          <Route path="/cart">
-            <Cart/>
-          </Route>
-          <Route path="/item/:id">
-            <ItemDetailContainer products={this.state.products}/>
-          </Route>
-        </Switch>
+        <CartProvider>
+          <Navbar/>
+          <Switch>
+            <Route exact path="/">
+              <Home greeting="Hola! Bienvenida a tu nueva forma de vestir ;)" products={this.state.products}/>
+            </Route>
+            <Route path="/cart">
+              <Cart/>
+            </Route>
+            <Route path="/item/:id">
+                <ItemDetailContainer products={this.state.products}/>
+            </Route>
+          </Switch>
+        </CartProvider>
       </BrowserRouter>
     )
   }
