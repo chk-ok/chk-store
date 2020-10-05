@@ -6,13 +6,13 @@ import {CartContext} from '../context/CartContext';
 export default function ItemDetail({item}) {
 
     const [counter, setCounter] = useState(1);
-    const {cart, setCart, cartLength} = useContext(CartContext);
+    const {cart, addToCart, cartLength} = useContext(CartContext);
 
     const agregarAlCarrito = () => {
-        setCart (cart => [...cart, {prod: item, cant: counter}]);
+        addToCart (item, counter);
     }
     const comprar = () => {
-        setCart (cart => cart.concat({prod: item, cant: counter}));
+        addToCart (item, counter);
     }
     const handleUpdate = (count) => {
         setCounter(count);
