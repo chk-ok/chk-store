@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react';
 import ItemDetail from './ItemDetail';
 import Spinner from './Spinner';
 import { useParams } from 'react-router-dom';
+import { getFirestore } from '../firebase';
 
-export default function ItemDetailContainer({products}) {
+export default function ItemDetailContainer() {
 
     const params = useParams();
 
@@ -11,18 +12,26 @@ export default function ItemDetailContainer({products}) {
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        const task = new Promise ((resolve, reject)=>{
-            setTimeout(()=> resolve(params.id - 1), 1000);
-        });
-        task.then(result => {
+
+        const db = getFirestore();
+        const collection = db.collection("items");
+        const item = collection.doc(params.id);
+
+        item.get().then( (doc) => {
+
+            if (!doc.exists) {
+                console.log (`El item ${params.id} no existe`);
+            } else {
+                setItem ({id: doc.id, ...doc.data()});
+            }
+
+        }).catch( (error) => {
+            console.log(`Se produjo un error al obtener el item ${params.id}`, error)
+        }).finally ( () => {
             setLoading(false);
-            setItem(products[result]);
-        }, error => {
-            console.log(error);
-        }).catch(exception => {
-            console.log(exception);
         });
-    }, [params, products]);
+        
+    }, [params]);
 
     if (loading) {
         return (

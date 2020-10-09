@@ -25,11 +25,22 @@ export default function NavBar() {
 
             <div className="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul className="navbar-nav mr-auto">
-                    <li className="nav-item">
-                        <Link to="/"><span className="nav-link">Categorias</span></Link>
+                    <li className="nav-item dropdown">
+                        <div className="nav-link dropdown-toggle" data-toggle="dropdown">Categorias</div>
+                        <div className="dropdown-menu">
+                            <Link to={`/category/camisas`}>
+                                <div className="dropdown-item">Camisas</div>
+                            </Link>
+                            <Link to={`/category/camperas`}>
+                                <div className="dropdown-item">Camperas</div>
+                            </Link>
+                            <Link to={`/category/jeans`}>
+                                <div className="dropdown-item">Jeans</div>
+                            </Link>
+                        </div>
                     </li>
                     <li className="nav-item">
-                        <Link to="/"><span className="nav-link">Hot Sale</span></Link>
+                        <Link to="/"><div className="nav-link">Hot Sale</div></Link>
                     </li>
                 </ul>
 

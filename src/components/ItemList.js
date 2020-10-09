@@ -7,7 +7,7 @@ export default function ItemList(props) {
         <div className="d-flex justify-content-center flex-wrap mb-5">
             {props.items.map ((item) => 
                 <Link to={`/item/${item.id}`} key={item.id}>
-                    <Item id={item.id} name={item.name} price={item.price}></Item>
+                    <Item item={item}></Item>
                 </Link>)}
         </div>
     )

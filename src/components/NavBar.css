@@ -9,3 +9,7 @@
 span.nav-link{
     text-align: center;
 }
+
+.dropdown-toggle {
+    cursor: pointer;
+}

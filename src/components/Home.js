@@ -1,14 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
 import Spinner from './Spinner';
+import {getFirestore} from '../firebase';
 
 export default function Home(props) {
 
-    if (props.products.length === 0) {
+    const [products, setProducts] = useState ([]);
+
+    useEffect(() => {
+
+        const db = getFirestore();
+        const itemCollection = db.collection("items");
+    
+        itemCollection.get().then( result => {
+    
+          if (result.size === 0) {
+            console.log('No results!');
+          } else {
+            let items = result.docs.map (doc => {
+              return {id: doc.id, ...doc.data()};
+            });
+            setProducts(items);
+          }
+    
+        }).catch( error => {
+          console.log("Error searching items", error);
+        });
+    })
+
+
+    if (products.length === 0) {
         return (
             <Spinner/>
         );
     }
+
     return (
         <div id="home">
             <div className="d-flex flex-column justify-content-center">
@@ -20,7 +46,7 @@ export default function Home(props) {
                 </div>
             </div>
             <div>
-                <ItemList items={props.products}/>
+                <ItemList items={products}/>
             </div>
         </div>
     )
