@@ -1,12 +1,15 @@
 import React from 'react'
 
 export default function Button(props) {
-    let style = 'btn mainBackground text-white w-100';
-    if (props.outlined) {
-        style = 'btn mainOutline w-100';
+
+    let attr = {className: props.outlined ? 'btn mainOutline w-100' : 'btn mainBackground text-white w-100'};
+    
+    if (props.disabled) {
+        attr.disabled = 1;
     }
+
     return (
-    <button className={style} type="button" onClick={props.action}>
+    <button {...attr} type="button" onClick={props.action}>
         {props.label}
     </button>
     )

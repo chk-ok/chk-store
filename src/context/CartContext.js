@@ -10,6 +10,10 @@ function CartProvider({defaultValue = [], children}) {
         return cart.reduce((accumulator, currentValue) => { return accumulator + currentValue.cant}, 0);
     }
 
+    const cartPrice = () => {
+        return cart.reduce((accumulator, currentValue) => { return accumulator + currentValue.cant * currentValue.prod.price}, 0);
+    }
+
     const addToCart = (newProduct, quantity) => {
         let prodIndex = cart.findIndex(item => item.prod.id === newProduct.id);
         if (prodIndex === -1){
@@ -21,8 +25,12 @@ function CartProvider({defaultValue = [], children}) {
         }
     }
 
+    const dropCart = () => {
+        setCart ([]);
+    }
+
     return (
-        <CartContext.Provider value={{cart, addToCart, cartLength}}>
+        <CartContext.Provider value={{cart, addToCart, cartLength, cartPrice, dropCart}}>
             {children}
         </CartContext.Provider>
     )

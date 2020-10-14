@@ -9,23 +9,33 @@ export default function Home(props) {
 
     useEffect(() => {
 
-        const db = getFirestore();
-        const itemCollection = db.collection("items");
-    
-        itemCollection.get().then( result => {
-    
-          if (result.size === 0) {
-            console.log('No results!');
-          } else {
-            let items = result.docs.map (doc => {
-              return {id: doc.id, ...doc.data()};
-            });
+      /* Variable de control para evitar actualizar el estado cuando el componente se encuentra desmontado
+      Ref: https://www.debuggr.io/react-update-unmounted-component/ */
+
+      let mounted = true;
+
+      const db = getFirestore();
+      const itemCollection = db.collection("items");
+  
+      itemCollection.get().then( result => {
+  
+        if (result.size === 0) {
+          console.log('No results!');
+        } else {
+          let items = result.docs.map (doc => {
+            return {id: doc.id, ...doc.data()};
+          });
+          if (mounted) {
             setProducts(items);
           }
-    
-        }).catch( error => {
-          console.log("Error searching items", error);
-        });
+        }
+  
+      }).catch( error => {
+        console.log("Error searching items", error);
+      });
+
+      return () => mounted = false;
+
     })
 
 
@@ -38,7 +48,7 @@ export default function Home(props) {
     return (
         <div id="home">
             <div className="d-flex flex-column justify-content-center">
-                <div id="welcomeMessage" className="py-5 px-4 welcomeCard rounded shadow my-5 mx-4">
+                <div id="welcomeMessage" className="p-4 welcomeCard rounded shadow my-5 mx-4">
                     <h2>
                         {props.greeting}
                     </h2>

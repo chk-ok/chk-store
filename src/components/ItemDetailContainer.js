@@ -3,6 +3,7 @@ import ItemDetail from './ItemDetail';
 import Spinner from './Spinner';
 import { useParams } from 'react-router-dom';
 import { getFirestore } from '../firebase';
+import './ItemDetailContainer.css';
 
 export default function ItemDetailContainer() {
 
@@ -10,6 +11,7 @@ export default function ItemDetailContainer() {
 
     const [loading, setLoading] = useState(true);
     const [item, setItem] = useState({});
+    const [itemExist, setItemExist] = useState(true);
 
     useEffect(() => {
 
@@ -20,7 +22,7 @@ export default function ItemDetailContainer() {
         item.get().then( (doc) => {
 
             if (!doc.exists) {
-                console.log (`El item ${params.id} no existe`);
+                setItemExist(false);
             } else {
                 setItem ({id: doc.id, ...doc.data()});
             }
@@ -33,15 +35,19 @@ export default function ItemDetailContainer() {
         
     }, [params]);
 
-    if (loading) {
-        return (
-            <Spinner/>
-        )
-    }
     return (
-        <div className="mt-5">
-            <ItemDetail item={item}/>
-        </div>
+        <>
+        { loading  ? <Spinner/> :
+            <div id="itemDetailContainer" className="d-flex">
+                { itemExist ? <ItemDetail item={item}/> : 
+                <div id="itemError" class="d-flex flex-column card mx-auto align-self-center">
+                    <div className="card-header"><h3 class="text-center">Error</h3></div>
+                    <div className="card-body m-auto">{`No existe ningun item con el id ${params.id}`}</div>
+                </div>
+                }
+            </div>
+        }
+        </>
     )
 
 }

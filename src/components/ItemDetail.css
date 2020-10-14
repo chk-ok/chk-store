@@ -1,3 +1,9 @@
-.productInfo {
+#productDescription {
+    border-top: 1px solid#dd404b;
+}
+
+#productInfo {
+    border: 1px solid#dd404b;
+    border-radius: 3px;
     text-align: center;
 }

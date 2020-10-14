@@ -39,13 +39,10 @@ export default class ItemCount extends Component {
                   <div className="input-group-prepend">
                       <Button action={this.decrement} label="-"/>
                   </div>
-                  <Input id="inputCantidad" data={this.state.count} changeAction={this.actualizarContador}/>
+                  <Input id="inputCantidad" type="text" data={this.state.count} changeAction={this.actualizarContador}/>
                   <div className="input-group-append">
                   <Button action={this.increment} label="+"/>
                   </div>
-              </div>
-              <div className="mt-3 w-100 shadow">
-                <Button action={()=>this.props.onAdd(this.state.count)} label="Agregar al carrito" outlined/>
               </div>
             </div>
         );

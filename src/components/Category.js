@@ -12,6 +12,7 @@ export default function Category() {
 
     useEffect(() => {
 
+        setLoading(true);
         const db = getFirestore();
         const categoryItems = db.collection("items").where("categoryId", "==", params.categoryId);
 
@@ -32,7 +33,7 @@ export default function Category() {
             setLoading(false);
         });
         
-    }, [params, products, loading]);
+    }, [params]);
 
     if (loading) {
         return (
@@ -43,7 +44,7 @@ export default function Category() {
     return (
         <div id="home">
             <div className="d-flex flex-column justify-content-center">
-                <div id="welcomeMessage" className="p-1 welcomeCard rounded shadow my-5 mx-4">
+                <div id="welcomeMessage" className="p-3 welcomeCard rounded shadow m-4">
                     <h2>
                         {params.categoryId.charAt(0).toUpperCase().concat(params.categoryId.substring(1))}
                     </h2>

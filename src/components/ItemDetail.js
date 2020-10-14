@@ -7,7 +7,7 @@ import './ItemDetail.css';
 export default function ItemDetail({item}) {
 
     const [counter, setCounter] = useState(1);
-    const {cart, addToCart, cartLength} = useContext(CartContext);
+    const {cart, addToCart} = useContext(CartContext);
 
     const agregarAlCarrito = () => {
         addToCart (item, counter);
@@ -19,29 +19,44 @@ export default function ItemDetail({item}) {
         setCounter(count);
     }
 
+    const cartCount = () => {
+        let cant = 0;
+        let itemIdx = cart.findIndex(cartItem => cartItem.prod.id === item.id);
+        if (itemIdx !== -1) {
+            cant = cart[itemIdx].cant;
+        }
+        return cant;
+    }
+
     if (item) {
         return (
-            <div className="productInfo ">
-                <div className=" d-flex flex-wrap">
-                    <div className="d-flex justify-content-center flex-grow-1 mb-5">
+            <div id="productInfo" className="m-4">
+                <div className=" d-flex flex-wrap justify-content-center">
+                    
+                    <div className="d-flex justify-content-center flex-grow-1 p-4">
                         <img src={item.image} alt="" className="adaptVW productImage p-3"/>
                     </div>
-                    <div className="adaptVW d-flex flex-column col-md-5 px-5 mx-2 align-items-center justify-content-center">
+
+                    <div className="adaptVW d-flex flex-column flex-grow-1 m-4 pr-lg-4 align-items-center justify-content-center">
                         <h4>
                             {item.title}
                         </h4>
                         <h3 className="productPrice">
                             ${item.price}
                         </h3>
-                        <div className="adaptVW buyingActions m-4">
-                            <ItemCount initial="1" min="1" max={item.stock} onAdd={agregarAlCarrito} onUpdate={handleUpdate}/>
-                            <div className="mt-5 shadow">
-                                <Button label={`Comprar ${counter}`} action={comprar}/>
-                            </div>
+                        <div className="adaptVW buyingActions p-4">
+                            {item.stock - cartCount() === 0 ? <div>Producto sin Stock</div> :
+                            <>
+                                <ItemCount initial="1" min="1" max={item.stock - cartCount()} onAdd={agregarAlCarrito} onUpdate={handleUpdate}/>
+                                <div className="mt-3 shadow">
+                                    <Button label={`Comprar ${counter}`} action={comprar} outlined/>
+                                </div>
+                            </>
+                            }
                         </div>
                     </div>
                 </div>
-                <div className = "p-5">
+                <div id="productDescription" className="pt-5 m-5">
                     {item.description}
                 </div>
             </div>

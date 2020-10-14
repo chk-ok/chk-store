@@ -4,7 +4,7 @@ import {CartContext} from '../context/CartContext';
 
 export default function CartIcon() {
 
-    const {cart, addToCart, cartLength} = useContext(CartContext);
+    const {cartLength} = useContext(CartContext);
 
     return (
         <Link to="/cart">
