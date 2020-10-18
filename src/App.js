@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import Navbar from './components/NavBar.js';
-import Home from './components/Home.js';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import Cart from './components/Cart';
-import Category from './components/Category';
+import Navbar from './components/NavBar/NavBar';
+import Home from './components/Home/Home';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Cart from './components/Cart/Cart';
+import Category from './components/Category/Category';
 import {CartProvider} from './context/CartContext';
 import './App.css';
 
@@ -27,7 +27,7 @@ export default class App extends Component {
             <Route path="/item/:id">
               <ItemDetailContainer/>
             </Route>
-            <Route path="/category/:categoryId">
+            <Route path="/categories/:categoryId">
               <Category/>
             </Route>
           </Switch>

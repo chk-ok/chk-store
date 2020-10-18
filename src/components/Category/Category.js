@@ -1,8 +1,8 @@
 import React, { useEffect, useState }from 'react';
 import { useParams } from 'react-router-dom';
-import { getFirestore } from '../firebase';
-import ItemList from './ItemList';
-import Spinner from './Spinner';
+import { getFirestore } from '../../firebase';
+import ItemList from '../ItemList/ItemList';
+import Spinner from '../Spinner/Spinner';
 
 export default function Category() {
 

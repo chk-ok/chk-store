@@ -1,14 +1,14 @@
 import React, {useContext, useState} from 'react';
 import {Link} from 'react-router-dom';
-import {getFirestore} from '../firebase';
+import {getFirestore} from '../../firebase';
 import * as firebase from 'firebase/app';
 
-import {CartContext} from '../context/CartContext';
-import CartItem from './CartItem';
-import Button from './Button';
-import Input from './Input';
-import Spinner from './Spinner';
-import Modal from './Modal';
+import {CartContext} from '../../context/CartContext';
+import CartItem from '../CartItem/CartItem';
+import Button from '../Button/Button';
+import Input from '../Input/Input';
+import Spinner from '../Spinner/Spinner';
+import Modal from '../Modal/Modal';
 
 import './Cart.css';
 
@@ -94,7 +94,7 @@ export default function Cart() {
             console.log ("El stock se actualizo correctamente");
             return orders.add(newOrder);
         }).then( newDoc => {
-            setModal({title: 'Gracias por tu Compra', body: `Tu numero de Orden es ${newDoc.id}`});
+            setModal({title: 'Gracias por tu compra', body: `El ID de tu Orden es ${newDoc.id}`});
         }).catch (error => {
             console.log("Hubo un error al generar la orden o actualizar el stock", error);
         }).finally (()=> {
@@ -170,7 +170,7 @@ export default function Cart() {
                     :
 
                     <div id="emptyCartMsg" className="mt-5 d-flex flex-column card mx-auto align-self-center">
-                        <div className="card-header"><h4 class="text-center">Tu carrito esta vacio</h4></div>
+                        <div className="card-header"><h4 className="text-center">Tu carrito esta vacio</h4></div>
                         <div className="card-body m-auto">
                             <Link to="/">
                                 <Button label="Elegi tu estilo"></Button>

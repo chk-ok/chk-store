@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Button from './Button';
-import Input from './Input';
+import Button from '../Button/Button';
+import Input from '../Input/Input';
 
 export default class ItemCount extends Component {
     constructor (props){

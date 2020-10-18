@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ItemList from './ItemList';
-import Spinner from './Spinner';
-import {getFirestore} from '../firebase';
+import ItemList from '../ItemList/ItemList';
+import Spinner from '../Spinner/Spinner';
+import {getFirestore} from '../../firebase';
 
 export default function Home(props) {
 

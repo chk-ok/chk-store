@@ -38,59 +38,12 @@
   }
 }
 
-.mainBackground {
-  background-color: #d22531 !important;
-}
-
 .welcomeCard {
   text-align: center;
   background-color: #dd404b !important;
   color:  white;
 }
 
-.productCard {
-  background-color: white !important;
-  border: 1px solid #dd404b !important;
-  color: #1b1811;
-  height: 370px;
-  width: 280px;
-  cursor: pointer;
-}
-
-.cartItem {
-  width: 100%;
-  background-color: white !important;
-  border: 1px solid #dd404b !important;
-  color: #1b1811;
-}
-
-.cardDetail{
- text-align: left;
- border-top: 1px solid #dd404b !important;
-}
-
 .productPrice{
   font-weight: bold;
-}
-
-.mainOutline{
-  border-color: #d22531 !important;
-  background-color: white !important;
-  color: #d22531 !important;
-}
-
-.productImage {
-  max-height : 70vh;
-}
-
-.cardImage {
-  height : 278px;
-}
-
-.buyingActions {
-  width: 300px !important;
-}
-
-.adaptVW {
-  max-width: 100% !important;
 }

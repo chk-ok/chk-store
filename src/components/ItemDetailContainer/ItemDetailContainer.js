@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import ItemDetail from './ItemDetail';
-import Spinner from './Spinner';
+import ItemDetail from '../ItemDetail/ItemDetail';
+import Spinner from '../Spinner/Spinner';
 import { useParams } from 'react-router-dom';
-import { getFirestore } from '../firebase';
+import { getFirestore } from '../../firebase';
 import './ItemDetailContainer.css';
 
 export default function ItemDetailContainer() {
@@ -40,8 +40,8 @@ export default function ItemDetailContainer() {
         { loading  ? <Spinner/> :
             <div id="itemDetailContainer" className="d-flex">
                 { itemExist ? <ItemDetail item={item}/> : 
-                <div id="itemError" class="d-flex flex-column card mx-auto align-self-center">
-                    <div className="card-header"><h3 class="text-center">Error</h3></div>
+                <div id="itemError" className="d-flex flex-column card mx-auto align-self-center">
+                    <div className="card-header"><h3 className="text-center">Error</h3></div>
                     <div className="card-body m-auto">{`No existe ningun item con el id ${params.id}`}</div>
                 </div>
                 }
