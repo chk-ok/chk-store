@@ -1,6 +1,6 @@
-# Chillko-Store
+# Chk-Store
 
-Chillko Store es un E-Commerce de indumentaria destinado a aquellas mujeres disruptivas que buscan empoderarse a traves de un estilo unico. La aplicacion fue creada haciendo uso de [Create React App](https://github.com/facebook/create-react-app) y [Firestore](https://firebase.google.com/products/firestore) y aun se encuentra en desarrollo. Si queres contribuir a esta nueva forma de vestir no dudes en contactarte conmigo.
+Chk Store es un E-Commerce de indumentaria destinado a aquellas mujeres disruptivas que buscan empoderarse a traves de un estilo unico. La aplicacion fue creada haciendo uso de [Create React App](https://github.com/facebook/create-react-app) y [Firestore](https://firebase.google.com/products/firestore) y aun se encuentra en desarrollo. Si queres contribuir a esta nueva forma de vestir no dudes en contactarte conmigo.
 
 ## Caracteristicas
 
@@ -35,11 +35,11 @@ Mira la seccion [despliegue](https://facebook.github.io/create-react-app/docs/de
 
 ## Uso
 ### Filtrar por categorias
-![](./gif_manual/filtrar_categoria.gif)
+![Categories](./gif_manual/filtrar_categoria.gif)
 ### Agregar producto al carrito
-![](./gif_manual/comprar_item.gif)
+![Items](./gif_manual/comprar_item.gif)
 ### Confirmar compra
-![](./gif_manual/confirmar_compra.gif)
+![Boughts](./gif_manual/confirmar_compra.gif)
 
 ## Como contribuir
 - Fork
